@@ -11,7 +11,7 @@ async function Product(props: IProductProps) {
     console.log(id)
     return (
 
-        <div>Product {id}</div>
+        <div>Product {id} </div>
     )
 }
 // dynamic route
