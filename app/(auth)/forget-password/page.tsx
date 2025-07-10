@@ -1,9 +1,8 @@
-import React from 'react'
+'use client';
 
-function ForgetPassword() {
+export default function ForgetPassword() {
     return (
-        <div>ForgetPassword</div>
+        <div className='flex items-center justify-center min-h-screen'>ForgotPassword</div>
     )
 }
 
-export default ForgetPassword

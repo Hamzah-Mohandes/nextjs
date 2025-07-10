@@ -2,7 +2,7 @@ import React from 'react'
 
 function Login() {
     return (
-        <div>Login</div>
+        <div className='flex items-center justify-center min-h-screen'>Login</div>
     )
 }
 

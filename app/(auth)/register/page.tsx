@@ -2,7 +2,7 @@ import React from 'react'
 
 function Register() {
     return (
-        <div>Register</div>
+        <div className='flex items-center justify-center min-h-screen'>Register</div>
     )
 }
 
