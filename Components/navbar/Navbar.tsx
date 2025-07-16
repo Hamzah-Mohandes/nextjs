@@ -1,14 +1,15 @@
 'use client'
 
-import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
+
+import Link from "next/link";
 
 function Navbar() {
     const [isMounted, setIsMounted] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
-    
+
     useEffect(() => {
         setIsMounted(true);
     }, []);
@@ -25,7 +26,11 @@ function Navbar() {
         {
             name: "Store",
             href: "/store"
-        }
+        },
+        {
+            name: "Contact Us",
+            href: "/contact-us"
+        },
     ];
 
     const handleClick = () => {
@@ -43,10 +48,10 @@ function Navbar() {
                 <ul className="flex gap-4">
                     {navs.map((nav) => (
                         <li key={nav.name}>
-                            <Link 
-                                href={nav.href} 
-                                className={pathname === nav.href 
-                                    ? "text-lime-500" 
+                            <Link
+                                href={nav.href}
+                                className={pathname === nav.href
+                                    ? "text-lime-500"
                                     : "hover:text-lime-500 transition-colors"}
                             >
                                 {nav.name}
@@ -54,8 +59,8 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
-                <button 
-                    className="ml-auto hover:text-lime-500 transition-colors" 
+                <button
+                    className="ml-auto hover:text-lime-500 transition-colors"
                     onClick={handleClick}
                 >
                     Back
