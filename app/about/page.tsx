@@ -25,6 +25,10 @@ async function About() {
     const result = await fetch('http://localhost:8000/products', {
         cache: "no-store",// was macht cache ? cache ist ein objekt das die daten speichert und wenn die daten nicht geaendert werden werden die daten nicht erneut geladen 
 
+        next: {
+            revalidate: 10,// time set for revalidate the data in seconds 
+        }
+
     })
 
     const data = await result.json()
