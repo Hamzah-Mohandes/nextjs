@@ -9,7 +9,7 @@ function ContactUs() {
     const [products, setProducts] = useState<any>([]);
 
     useEffect(() => {
-        axios.get('https://fakestoreapi.com/products').then((res) => {
+        axios.get('http://localhost:8000/products').then((res) => {
             setProducts(res.data);
         })
             .catch((err) => {
@@ -19,16 +19,12 @@ function ContactUs() {
     console.log(products);
 
     return (
-        <div className='flex flex-col gap-2 m-8 pt-8'>
+        <div className='flex flex-col gap-2 m-8 pt-8 fixed top-0 w-full z-50'>
             <h1>ContactUs</h1>
             {products.map((product: any) => (
-                <div key={product.id}>
-                    <h2>{product.title}</h2>
-                    <p>{product.price}</p>
-                    <p>{product.description}</p>
-                    <p>{product.category}</p>
-                    <img src={product.image} alt="" />
-                    <p>{product.rating.rate}</p>
+                <div className='flex ' key={product.id}>
+                    <h2 className='text-xl font-bold m-4'>{product.title}</h2>
+                    <p className='text-lg font-semibold'>{product.price}</p>
                 </div>
             ))}
         </div>

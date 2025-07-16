@@ -22,24 +22,24 @@ export interface Rating {
 
 async function About() {
 
-    const response = await axios.get('https://fakestoreapi.com/products')
-    const data = response.data;
-    console.log(data);
+    const result = await fetch('http://localhost:8000/products', {
+        cache: "no-store",// was macht cache ? cache ist ein objekt das die daten speichert und wenn die daten nicht geaendert werden werden die daten nicht erneut geladen 
+
+    })
+
+    const data = await result.json()
+    console.log(data)
 
     return (
         <div>
             <h1>About</h1>
             {data.map((product: IgetProduct) => (
-                <div className='flex flex-col gap-2 border border-gray-500 p-2 rounded-lg  m-8' key={product.id}>
-                    <h2 className='text-xl font-bold m-4'>{product.title}</h2>
-                    <p className='text-lg font-semibold'>{product.price}</p>
-                    <p className='text-sm text-gray-500'>{product.description}</p>
-                    <p className='text-sm text-gray-500'>{product.category}</p>
-                    <img src={product.image} alt="" />
-                    <p className='text-sm m-4 text-green-500'>{product.rating.rate}</p>
-
+                <div key={product.id} className='flex flex-col gap-2 border border-gray-500 p-2 rounded-lg  m-8'>
+                    <h2>{product.title}</h2>
+                    <p>{product.price}</p>
                 </div>
             ))}
+
         </div>
     )
 
