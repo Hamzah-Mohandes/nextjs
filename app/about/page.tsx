@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { justForServer } from '../serverOnly'
 
 export interface IgetProduct {
     id: number;
@@ -34,6 +35,7 @@ async function About() {
     const data = await result.json()
     console.log(data)
 
+    justForServer()
     return (
         <div>
             <h1>About</h1>
@@ -41,6 +43,7 @@ async function About() {
                 <div key={product.id} className='flex flex-col gap-2 border border-gray-500 p-2 rounded-lg  m-8'>
                     <h2>{product.title}</h2>
                     <p>{product.price}</p>
+                    <p className='text-red-500'> id : {product.id} </p>
                 </div>
             ))}
 
