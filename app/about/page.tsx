@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { justForServer } from '../serverOnly'
+import { justForServer } from '../server-clientOnly/serverOnly'
 
 export interface IgetProduct {
     id: number;

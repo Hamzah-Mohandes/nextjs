@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 import React from 'react'
 import axios from 'axios'
+import { justForClient } from '../server-clientOnly/clientOnly'
 
 function ContactUs() {
     const [products, setProducts] = useState<any>([]);
@@ -17,6 +18,7 @@ function ContactUs() {
             })
     }, [])
     console.log(products);
+    justForClient()
 
     return (
         <div className='flex flex-col gap-2 m-8 pt-8 fixed top-0 w-full z-50'>
